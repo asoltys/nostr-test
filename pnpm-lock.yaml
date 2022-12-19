@@ -1,0 +1,47 @@
+lockfileVersion: 5.4
+
+specifiers:
+  nostr: github:jb55/nostr-js
+  prettier: ^2.8.1
+
+dependencies:
+  nostr: github.com/jb55/nostr-js/e27e92f121decf7c2b55c5f2e7be55a5a9e3e051
+  prettier: 2.8.1
+
+packages:
+
+  /noble-secp256k1/1.2.14:
+    resolution: {integrity: sha512-GSCXyoZBUaaPwVWdYncMEmzlSUjF9J/YeEHpklYJCyg8wPuJP3NzDx0BkiwArzINkdX2HJHvUJhL6vVWPOQQcg==}
+    deprecated: Switch to namespaced @noble/secp256k1 for security and feature updates
+    dev: false
+
+  /prettier/2.8.1:
+    resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: false
+
+  /ws/8.11.0:
+    resolution: {integrity: sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: false
+
+  github.com/jb55/nostr-js/e27e92f121decf7c2b55c5f2e7be55a5a9e3e051:
+    resolution: {tarball: https://codeload.github.com/jb55/nostr-js/tar.gz/e27e92f121decf7c2b55c5f2e7be55a5a9e3e051}
+    name: nostr
+    version: 0.2.7
+    dependencies:
+      noble-secp256k1: 1.2.14
+      ws: 8.11.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
