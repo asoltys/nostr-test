@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "got": "^12.5.3",
     "nostr": "github:jb55/nostr-js",
     "prettier": "^2.8.1"
   },
