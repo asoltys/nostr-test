@@ -24,7 +24,7 @@ pool.on("open", (relay) => {
 
   let send = () => {
     console.log("sending", event);
-    relay.send(["EVENT", "subid", event]);
+    relay.send(["EVENT", event]);
   };
 
   // wait a second then send
