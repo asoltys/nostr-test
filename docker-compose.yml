@@ -1,0 +1,37 @@
+version: '3.6'
+services:
+  nostr:
+    container_name: nostr
+    image: asoltys/nostr-rs-relay
+    restart: always
+    user: 100:100
+    volumes:
+      - "./config/nostr/data:/usr/src/app/db" 
+      - "./config/nostr/config.toml:/usr/src/app/config.toml" 
+    ports:
+      - '7001:8080'
+    networks:
+      default:
+        ipv4_address: 172.18.2.2
+    volumes:
+      - "./config/nostr/data:/usr/src/app/db" 
+      - "./config/nostr/config.toml:/usr/src/app/config.toml" 
+    ports:
+      - '7001:8080'
+    networks:
+      default:
+        ipv4_address: 172.18.2.2
+  napp:
+    container_name: napp 
+    image: asoltys/nostr-server
+    restart: always
+    volumes:
+      - ./:/app
+    command: "npm run dev"
+    networks:
+      default:
+        ipv4_address: 172.18.2.3
+networks: 
+  default: 
+    name: net
+    external: true

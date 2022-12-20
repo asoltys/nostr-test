@@ -1,8 +1,12 @@
 import { Relay, RelayPool } from "nostr";
+import { Connection } from "./socket.js";
 import { got } from "got";
 
 const { relays } = await got("https://nostr.watch/relays.json").json();
 const pool = RelayPool(relays);
+
+let conn = Connection('ws://app:3119/ws');
+console.log(conn)
 
 let coinos;
 pool.on("open", (relay) => {
@@ -13,6 +17,7 @@ pool.on("open", (relay) => {
 let seen = [];
 pool.on("event", (relay, sub_id, ev) => {
   if (seen.includes(ev.id)) return;
+  if (Math.abs(Math.floor(Date.now()/1000) - ev.created_at) > 7200) return;
   seen.push(ev.id);
   seen.length > 1000 && seen.shift();
 
